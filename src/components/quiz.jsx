@@ -1,6 +1,5 @@
 function Quiz() {
-
-const questionBank = [
+  const questionBank = [
     {
       question: "What is the capital of France?",
       options: ["Berlin", "London", "Paris", "Rome"],
@@ -16,35 +15,32 @@ const questionBank = [
       options: ["Jeff Bezos", "Elon Musk", "Bill Gates", "Tony Stark"],
       answer: "Elon Musk",
     },
-];
+  ];
 
-    
-    var optionSelected = "None";
+  var optionSelected = "None";
 
-    function handleSelectOption(option) {
-        optionSelected = option;
-    }
+  function handleSelectOption(option) {
+    optionSelected = option;
+  }
 
-    return (
+  return (
     <div>
-        <h1>Question 1</h1>
-        <p>{questionBank[0].question}</p>
-        {
-            questionBank[0].options.map((option) => (
-                <button className="option" onClick={() => handleSelectOption(option)}>{option}</button>
-            )
-        )
-        }
+      <h1>Question 1</h1>
+      <p>{questionBank[0].question}</p>
+      {questionBank[0].options.map((option) => (
+        <button className="option" onClick={() => handleSelectOption(option)}>
+          {option}
+        </button>
+      ))}
 
-        <p>Option Selected = {optionSelected}</p>
+      <p>Option Selected = {optionSelected}</p>
 
-    <div className="nav-buttons">
+      <div className="nav-buttons">
         <button>Previous</button>
         <button>Next</button>
+      </div>
     </div>
-      
-    </div>
-    )
+  );
 }
 
 export default Quiz;
