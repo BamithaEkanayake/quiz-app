@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function Quiz() {
   const questionBank = [
     {
@@ -17,27 +19,47 @@ function Quiz() {
     },
   ];
 
-  var optionSelected = "None";
+  const initialAnswers = [null, null, null];
+  const [userAnswers, setUserAnswers] = useState(initialAnswers);
+
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
   function handleSelectOption(option) {
-    optionSelected = option;
+    const newUserAnswers = [...userAnswers];
+    newUserAnswers[currentQuestion] = option;
+    setUserAnswers(newUserAnswers);
+  }
+
+  function goToPrev() {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+    }
+  }
+
+  function goToNext() {
+    setCurrentQuestion(currentQuestion + 1);
   }
 
   return (
     <div>
-      <h1>Question 1</h1>
-      <p>{questionBank[0].question}</p>
-      {questionBank[0].options.map((option) => (
+      <h1>Question {currentQuestion + 1}</h1>
+      <p className="question">{questionBank[currentQuestion].question}</p>
+      {questionBank[currentQuestion].options.map((option) => (
         <button className="option" onClick={() => handleSelectOption(option)}>
           {option}
         </button>
       ))}
 
-      <p>Option Selected = {optionSelected}</p>
-
       <div className="nav-buttons">
-        <button>Previous</button>
-        <button>Next</button>
+        <button onClick={goToPrev} disabled={currentQuestion === 0}>
+          Previous
+        </button>
+        <button
+          onClick={goToNext}
+          disabled={currentQuestion === questionBank.length - 1}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
