@@ -1,12 +1,14 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+What I Learned Building This Quiz App
 
-Currently, two official plugins are available:
+React Component Structure: Broke down the UI into reusable components (Quiz, Results).
+Props: Passed data and functions between components using props for dynamic rendering and communication.
+useState Hook: Managed local state for user answers, current question, and quiz completion status.
+Conditional Rendering: Displayed different components (questions or results) based on the quiz state.
+Event Handling: Handled user interactions such as selecting options and navigating between questions.
+Array Methods: Used array methods like map and forEach to render options and calculate scores.
+Basic CSS Styling: Styled components and handled UI feedback for selected options and navigation.
+Component Re-rendering: Observed how state changes trigger re-renders and update the UI in real time.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project provided hands-on experience with React fundamentals and state-driven UI development.
